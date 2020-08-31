@@ -1,8 +1,11 @@
 import boto3
 
-if __name__ == '__main__':
-    session = boto3.Session(profile_name='ent-softbuild-sdlc-prod')
-    ec2 = session.resource('ec2')
+session = boto3.Session(profile_name='ent-softbuild-sdlc-prod')
+ec2 = session.resource('ec2')
 
-    for i in ec2.instances.all():
+def list_instances():
+ for i in ec2.instances.all():
         print(i)
+
+if __name__ == '__main__':
+    list_instances()
